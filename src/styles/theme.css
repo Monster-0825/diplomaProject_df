@@ -1,0 +1,209 @@
+/* ============================================================
+   校园团购平台 · 浅色玻璃主题
+   柔和流动渐变背景 + 白色玻璃拟态 + 蓝紫霓虹点缀（纯 CSS）
+   ============================================================ */
+
+/* ---------- Element Plus 浅色主题变量覆盖 ---------- */
+:root {
+  --el-color-primary: #6366f1;
+  --el-color-primary-light-3: #818cf8;
+  --el-color-primary-light-5: #a5b4fc;
+  --el-color-primary-light-7: #c7d2fe;
+  --el-color-primary-light-8: #e0e7ff;
+  --el-color-primary-light-9: #eef2ff;
+  --el-color-primary-dark-2: #4f46e5;
+
+  --el-bg-color: #ffffff;
+  --el-bg-color-page: #eef2ff;
+  --el-bg-color-overlay: #ffffff;
+
+  --el-text-color-primary: #1e293b;
+  --el-text-color-regular: #334155;
+  --el-text-color-secondary: #64748b;
+  --el-text-color-placeholder: #94a3b8;
+
+  --el-border-color: #dbe1f8;
+  --el-border-color-light: #e3e8fa;
+  --el-border-color-lighter: #ebeffb;
+  --el-border-color-extra-light: #f1f4fc;
+
+  --el-fill-color: rgba(99, 102, 241, 0.08);
+  --el-fill-color-light: rgba(99, 102, 241, 0.06);
+  --el-fill-color-lighter: rgba(99, 102, 241, 0.04);
+  --el-fill-color-blank: #ffffff;
+}
+
+/* ---------- 卡片：白色玻璃 ---------- */
+.el-card {
+  background: rgba(255, 255, 255, 0.66) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(99, 102, 241, 0.16) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 28px rgba(79, 70, 229, 0.08);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.el-card:hover {
+  border-color: rgba(99, 102, 241, 0.4) !important;
+  box-shadow: 0 14px 40px rgba(79, 70, 229, 0.14);
+}
+
+/* ---------- 表格透明化 ---------- */
+.el-table,
+.el-table__inner-wrapper,
+.el-table__body-wrapper,
+.el-table tr,
+.el-table th.el-table__cell,
+.el-table td.el-table__cell {
+  background: transparent !important;
+}
+.el-table::before {
+  background-color: rgba(99, 102, 241, 0.12) !important;
+}
+.el-table th.el-table__cell {
+  color: #4f46e5 !important;
+  font-weight: 600;
+}
+.el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
+  background: rgba(99, 102, 241, 0.05) !important;
+}
+.el-table__body tr:hover > td.el-table__cell {
+  background: rgba(99, 102, 241, 0.09) !important;
+}
+
+/* ---------- 按钮：渐变 + 流光扫过 ---------- */
+.el-button {
+  border-radius: 9px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+.el-button--primary {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+}
+.el-button--primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -70%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.55s ease;
+}
+.el-button--primary:hover::after {
+  left: 125%;
+}
+.el-button--primary:hover {
+  box-shadow: 0 6px 22px rgba(139, 92, 246, 0.45);
+  transform: translateY(-1px);
+}
+.el-button--success {
+  background: linear-gradient(135deg, #059669, #10b981) !important;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+}
+.el-button--warning {
+  background: linear-gradient(135deg, #d97706, #f59e0b) !important;
+  border: none !important;
+}
+.el-button--danger {
+  background: linear-gradient(135deg, #dc2626, #ef4444) !important;
+  border: none !important;
+}
+
+/* ---------- 输入控件 ---------- */
+.el-input__wrapper,
+.el-textarea__inner,
+.el-select__wrapper {
+  background: rgba(255, 255, 255, 0.85) !important;
+  box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.22) inset !important;
+  border-radius: 9px;
+}
+.el-input__wrapper.is-focus,
+.el-select__wrapper.is-focused {
+  box-shadow: 0 0 0 1px #6366f1 inset, 0 0 12px rgba(99, 102, 241, 0.25) !important;
+}
+
+/* ---------- 对话框 / 下拉 ---------- */
+.el-dialog {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(99, 102, 241, 0.18);
+  border-radius: 16px !important;
+  box-shadow: 0 24px 70px rgba(79, 70, 229, 0.16);
+}
+.el-popper {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* ---------- 其他组件微调 ---------- */
+.el-pagination {
+  --el-pagination-bg-color: transparent;
+}
+.el-tabs__item {
+  color: #64748b;
+}
+.el-tabs__item.is-active {
+  color: #4f46e5;
+}
+.el-tag {
+  border-radius: 6px;
+}
+.el-message-box {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+/* ---------- 工具类 ---------- */
+.grad-text {
+  background: linear-gradient(90deg, #6366f1, #a855f7, #0891b2, #6366f1);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradShift 5s linear infinite;
+}
+@keyframes gradShift {
+  to {
+    background-position: 300% center;
+  }
+}
+.page-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.page-title::before {
+  content: '';
+  width: 5px;
+  height: 22px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #6366f1, #0891b2);
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.5);
+}
+
+/* ---------- 滚动条 ---------- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(99, 102, 241, 0.08);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #818cf8, #a855f7);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #6366f1, #8b5cf6);
+}
