@@ -7,7 +7,12 @@
           <el-tab-pane label="待接单任务" name="available" />
           <el-tab-pane label="我的任务" name="mine" />
         </el-tabs>
-        <el-button type="primary" @click="openRoute">路径规划</el-button>
+        <div class="toolbar-actions">
+          <el-button @click="$router.push('/delivery-map')">
+            <el-icon><MapLocation /></el-icon>&nbsp;查看地图
+          </el-button>
+          <el-button type="primary" @click="openRoute">路径规划</el-button>
+        </div>
       </div>
 
       <el-table :data="list" v-loading="loading" border stripe>
@@ -105,6 +110,14 @@ load()
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.toolbar-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 10px;
 }
 .route-item {
   display: flex;

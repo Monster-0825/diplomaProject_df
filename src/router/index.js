@@ -22,9 +22,21 @@ const routes = [
         meta: { roles: ['STUDENT'] }
       },
       {
+        path: 'pay/:orderId',
+        name: 'Pay',
+        component: () => import('@/views/student/Pay.vue'),
+        meta: { roles: ['STUDENT'] }
+      },
+      {
         path: 'delivery',
         name: 'Delivery',
         component: () => import('@/views/delivery/DeliveryTasks.vue'),
+        meta: { roles: ['DELIVERY'] }
+      },
+      {
+        path: 'delivery-map',
+        name: 'DeliveryMap',
+        component: () => import('@/views/delivery/DeliveryMap.vue'),
         meta: { roles: ['DELIVERY'] }
       },
       {

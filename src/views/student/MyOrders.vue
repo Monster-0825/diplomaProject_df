@@ -42,10 +42,12 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
-import { myOrders, payOrder, confirmOrder } from '@/api'
+import { myOrders, confirmOrder } from '@/api'
 import { orderStatusText, orderStatusType, deliveryStatusText, deliveryStatusType } from '@/utils/dict'
 
+const router = useRouter()
 const loading = ref(false)
 const list = ref([])
 
@@ -58,10 +60,9 @@ async function load() {
   }
 }
 
-async function onPay(row) {
-  await payOrder(row.id)
-  ElMessage.success('支付成功，已生成配送任务')
-  load()
+// 跳转到支付页（扫码支付）
+function onPay(row) {
+  router.push(`/pay/${row.id}`)
 }
 
 async function onConfirm(row) {
